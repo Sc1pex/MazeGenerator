@@ -33,9 +33,7 @@ func (s *Status) SetHeight(height int) {
 
 func (s *Status) SetAlg(alg string) error {
 	switch alg {
-	case "binaryTree":
-		s.alg = alg
-	case "sidewinder":
+	case "binaryTree", "sidewinder", "aldous-broder":
 		s.alg = alg
 	default:
 		return errors.New("Unknown algorithm")

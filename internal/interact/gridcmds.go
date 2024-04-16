@@ -21,6 +21,8 @@ func (cmd generateCmd) Execute(args []string) error {
 		algs.BinTree(S.grid)
 	case "sidewinder":
 		algs.Sidewinder(S.grid)
+	case "aldous-broder":
+		algs.AldousBroder(S.grid)
 	default:
 		return errors.New("Unknown algorithm (unreachable?)")
 	}

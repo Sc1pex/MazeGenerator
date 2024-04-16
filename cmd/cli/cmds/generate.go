@@ -51,6 +51,8 @@ func generate(cmd *cobra.Command, args []string) error {
 		algs.BinTree(&g)
 	case "sidewinder":
 		algs.Sidewinder(&g)
+	case "aldous-broder":
+		algs.AldousBroder(&g)
 	default:
 		return errors.New("Unknown algorithm")
 	}

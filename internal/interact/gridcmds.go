@@ -58,7 +58,12 @@ func (cmd solveCmd) Execute(args []string) error {
 		if slices.Contains(path, i) {
 			style = lipgloss.NewStyle().Foreground(lipgloss.Color("#40a02b"))
 		}
-		return style.Render(fmt.Sprintf("%2d ", bfs.Distances[i]))
+		dist := bfs.Distances[i]
+		if dist < 100 {
+			return style.Render(fmt.Sprintf("%2d ", dist))
+		} else {
+			return style.Render(fmt.Sprintf("%3d", dist))
+		}
 	}))
 
 	return nil
@@ -108,7 +113,13 @@ func (cmd longestPathCmd) Execute(args []string) error {
 		if slices.Contains(path, i) {
 			style = lipgloss.NewStyle().Foreground(lipgloss.Color("#40a02b"))
 		}
-		return style.Render(fmt.Sprintf("%2d ", r.Depth[i]))
+
+		dist := r.Depth[i]
+		if dist < 100 {
+			return style.Render(fmt.Sprintf("%2d ", dist))
+		} else {
+			return style.Render(fmt.Sprintf("%3d", dist))
+		}
 	}))
 
 	return nil
